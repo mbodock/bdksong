@@ -2,6 +2,12 @@
 
 Encontre músicas rapidamente no seu computador sem sair do terminal
 
+## Requisitos
+
+ * mplayer
+
+Como o Bdksong é uma interface para o `mplayer` nada mais obvio do que o **mplayer**.
+
 ## Uso:
 
     bdksong STRING
@@ -12,11 +18,6 @@ criará uma lista temporária com estes arquivos.
     bdksong -s STRING
 
 O mesmo da opção acima, mas irá embaralhar a lista antes da reprodução.
-
-
-## Requisitos
-
-Como o Bdksong é uma interface para o `mplayer` nada mais obvio do que o **mplayer**.
 
 ##  Contribuições
 
