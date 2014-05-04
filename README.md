@@ -8,7 +8,14 @@ Encontre músicas rapidamente no seu computador sem sair do terminal
 
 Como o Bdksong é uma interface para o `mplayer` nada mais obvio do que o **mplayer**.
 
-## Uso:
+## Instalação
+
+Via download direto:
+
+    sudo wget https://raw.githubusercontent.com/mbodock/bdksong/master/bdksong.sh -O /usr/bin/bdksong
+    sudo chmod +x /usr/bin/bdksong
+    
+## Uso
 
     bdksong STRING
 
