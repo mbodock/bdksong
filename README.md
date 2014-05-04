@@ -33,5 +33,6 @@ Contribuições são bem-vindas! Fique à vontade para fazer fork, criar issues 
 ## Licença
 
 Bdksong é um software livre distribuído sobre os termos da [licença da MIT](http://opensource.org/licenses/MIT).
+
 Bdksong is free software distributed under the terms of the [MIT license](http://opensource.org/licenses/MIT);
 
