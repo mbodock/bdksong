@@ -4,7 +4,7 @@ Encontre músicas rapidamente no seu computador sem sair do terminal
 
 ## Requisitos
 
- * mplayer
+ * [mplayer](http://mplayerhq.hu/)
 
 Como o Bdksong é uma interface para o `mplayer` nada mais obvio do que o **mplayer**.
 
