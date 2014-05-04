@@ -8,7 +8,7 @@
 #
 # Author Mbodock (mbodock@gmail.com)
 #
-# Versão 0.22
+# Versão 0.32
 #
 # Requisitos: mplayer
 
