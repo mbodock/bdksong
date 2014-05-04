@@ -10,9 +10,9 @@ Como o Bdksong é uma interface para o `mplayer` nada mais obvio do que o **mpla
 
 ## Instalação
 
-Via download direto:
+Via download direto (versão 0.4):
 
-    sudo wget https://raw.githubusercontent.com/mbodock/bdksong/master/bdksong.sh -O /usr/bin/bdksong
+    sudo wget https://raw.githubusercontent.com/mbodock/bdksong/v0.4/bdksong.sh -O /usr/bin/bdksong
     sudo chmod +x /usr/bin/bdksong
     
 ## Uso
