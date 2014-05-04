@@ -44,10 +44,20 @@ else
     echo "Pronto!"
 fi
 
+# Verificando se temos modo -s
+if [ "$1" == "-s" ]; then
+    shuffle=1
+    shift
+fi
+
 cd $music_path
 list="/tmp/bdklist.list"
 echo "$(find $(pwd) | grep -i "$1" | while read x; do echo "$x"; done)" > $list
 
-mplayer -playlist $list
+if [ $shuffle -eq 1 ]; then
+    sort --random-sort $list -o $list
+fi
+
+mplayer -playlist $list 
 
 rm $list
