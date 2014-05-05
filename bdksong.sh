@@ -8,7 +8,7 @@
 #
 # Author Mbodock (mbodock@gmail.com)
 #
-# Versão 0.4
+# Versão 0.4.1
 #
 # Requisitos: mplayer
 
@@ -54,7 +54,7 @@ cd $music_path
 list="/tmp/bdklist.list"
 echo "$(find $(pwd) | grep -i "$1" | while read x; do echo "$x"; done)" > $list
 
-if [ $shuffle -eq 1 ]; then
+if [ $shuffle ]; then
     sort --random-sort $list -o $list
 fi
 
