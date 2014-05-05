@@ -13,6 +13,7 @@
 # Requisitos: mplayer
 
 # Testa as dependências: mplayer
+
 if type mplayer &>/dev/null; then
     true
 else
@@ -58,6 +59,6 @@ if [ $shuffle ]; then
     sort --random-sort $list -o $list
 fi
 
-mplayer -playlist $list 
+mplayer -playlist $list
 
 rm $list
