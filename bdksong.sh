@@ -146,9 +146,12 @@ verbose_mode()
 {
     if [ $verbose = 1 ]
     then
-        # Imprimir só os arquivos, sem os path
-        #echo "$( cat $list | while read line; do awk -F/ '{print ${!#}}';done )"
-        cat $list
+        while read line
+        do
+            # imprime só o ultimo argumento, sem o path
+            echo $line | awk -F"/" '{print $NF}'
+        done < $list
+
         sleep $sleep_time
     fi
 }
