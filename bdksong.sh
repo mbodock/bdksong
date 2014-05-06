@@ -168,6 +168,15 @@ set_shuffle()
     fi
 }
 
+check_list()
+{
+    size=$(wc -c $list | awk -F ' ' '{print $1}')
+    if [ "$size" -lt "2" ]
+    then
+        echo "Nenhuma música encontrada."
+        leave 404
+    fi
+}
 
 #================
 #   Main
@@ -223,6 +232,7 @@ then
     echo "$(find $music_path | grep -i "$music_string" | while read x; do echo "$x"; done)" > $list
     set_shuffle
     verbose_mode
+    check_list
     mplayer -playlist $list
     rm $list
 else
