@@ -51,10 +51,13 @@ O bdksong é um script modo texto para execução de uma playlist dada uma strin
             para <novo_diretório>.
 
     -h, --help
-            imprime na tela esta mensagem
+            imprime na tela esta mensagem.
 
     -s, --shuffle
-            playlist em modo aleatório
+            playlist em modo aleatório.
+
+    -r, --repeat
+            Irá reproduzir a lista em loop até que a letra "q" seja precionada.
 
     -V
             imprime na tela a versão do programa.
@@ -206,6 +209,9 @@ do
             change_path=1
             shift
             ;;
+        -r | --repeat)
+            loop="-loop 0"
+            ;;
         -s | --shuffle)
             shuffle=1
             ;;
@@ -240,7 +246,12 @@ then
     set_shuffle
     verbose_mode
     check_list
-    mplayer -playlist $list
+    if [ -n "$loop" > /dev/null ]
+    then
+        mplayer -loop 0 -playlist $list
+    else
+        mplayer -playlist $list
+    fi
     rm $list
 else
     cat <<WARNING
