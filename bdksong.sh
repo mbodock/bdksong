@@ -69,7 +69,7 @@ O bdksong é um script modo texto para execução de uma playlist dada uma strin
             Por padrão o bdksong executará os seguintes formatos: (mp3|mp4|avi|AAC|wma)
 
     String:
-            substritua string por uma palavra, ou pedaço de palavra,
+            substitua string por uma palavra, ou pedaço de palavra,
             contida na descrição da(s) música(s) desejada(s).
 
 

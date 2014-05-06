@@ -17,12 +17,13 @@ Via download direto (versão 0.4):
     sudo ln -sv /usr/bin/bdksong/bdksong.sh  /usr/local/bin/bdksong
 
 ## Uso
-        bdksong [opções]
-        bdksong [opções] [string]
+    
+    bdksong [opções]
+    bdksong [opções] [string]
 
 
     Opções:
-    --dir=<novo_diretório>
+    --dir <novo_diretório>
             muda o diretório do qual as músicas serão executadas
             para <novo_diretório>. É muito importante que o sinal de
             igualdade seja usado conforme está descrito.
@@ -36,12 +37,16 @@ Via download direto (versão 0.4):
     -V
             imprime na tela a versão do programa.
 
-    -v=<tempo>, --verbose=<tempo>
-            imprime na tela por <tempo> segundos a lista que será executada. É muito 
+    -v <tempo>, --verbose <tempo>
+            imprime na tela por <tempo> segundos a lista que será executada. É muito
             importante que o sinal de igualdade seja usado conforme está descrito.
 
+    -t <extensão>, --type <extensão>
+            Define a extensão o arquivo que o bdksong irá tocar.
+            Por padrão o bdksong executará os seguintes formatos: (mp3|mp4|avi|AAC|wma)
+
     String:
-            substritua string por uma palavra, ou pedaço de palavra,
+            substitua string por uma palavra, ou pedaço de palavra,
             contida na descrição da(s) música(s) desejada(s).
 
 
