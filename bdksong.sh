@@ -222,7 +222,7 @@ do
             shift
             ;;
         *)
-            music_string=$1
+            music_string="$music_string.*$1"
     esac
     shift
 done
