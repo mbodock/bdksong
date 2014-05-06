@@ -14,17 +14,36 @@ Via download direto (versão 0.4):
 
     sudo wget https://raw.githubusercontent.com/mbodock/bdksong/v0.4/bdksong.sh -O /usr/bin/bdksong
     sudo chmod +x /usr/bin/bdksong
-    
+    sudo ln -sv /usr/bin/bdksong/bdksong.sh  /usr/local/bin/bdksong
+
 ## Uso
+        bdksong [opções]
+        bdksong [opções] [string]
 
-    bdksong STRING
 
-Irá procurar pelos arquivos que sejam compatíveis com a string fornecida e
-criará uma lista temporária com estes arquivos.
+    Opções:
+    --dir=<novo_diretório>
+            muda o diretório do qual as músicas serão executadas
+            para <novo_diretório>. É muito importante que o sinal de
+            igualdade seja usado conforme está descrito.
 
-    bdksong -s STRING
+    -h, --help
+            imprime na tela esta mensagem
 
-O mesmo da opção acima, mas irá embaralhar a lista antes da reprodução.
+    -s, --shuffle
+            playlist em modo aleatório
+
+    -V
+            imprime na tela a versão do programa.
+
+    -v=<tempo>, --verbose=<tempo>
+            imprime na tela por <tempo> segundos a lista que será executada. É muito 
+            importante que o sinal de igualdade seja usado conforme está descrito.
+
+    String:
+            substritua string por uma palavra, ou pedaço de palavra,
+            contida na descrição da(s) música(s) desejada(s).
+
 
 ##  Contribuições
 
