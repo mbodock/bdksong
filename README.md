@@ -21,12 +21,10 @@ Via download direto (versão 0.4):
     bdksong [opções]
     bdksong [opções] [string]
 
-
     Opções:
     --dir <novo_diretório>
             muda o diretório do qual as músicas serão executadas
-            para <novo_diretório>. É muito importante que o sinal de
-            igualdade seja usado conforme está descrito.
+            para <novo_diretório>.
 
     -h, --help
             imprime na tela esta mensagem
@@ -38,8 +36,7 @@ Via download direto (versão 0.4):
             imprime na tela a versão do programa.
 
     -v <tempo>, --verbose <tempo>
-            imprime na tela por <tempo> segundos a lista que será executada. É muito
-            importante que o sinal de igualdade seja usado conforme está descrito.
+            imprime na tela por <tempo> segundos a lista que será executada.
 
     -t <extensão>, --type <extensão>
             Define a extensão o arquivo que o bdksong irá tocar.
@@ -48,7 +45,6 @@ Via download direto (versão 0.4):
     String:
             substitua string por uma palavra, ou pedaço de palavra,
             contida na descrição da(s) música(s) desejada(s).
-
 
 ##  Contribuições
 
