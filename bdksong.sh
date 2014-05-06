@@ -48,8 +48,7 @@ O bdksong é um script modo texto para execução de uma playlist dada uma strin
     Opções:
     --dir <novo_diretório>
             muda o diretório do qual as músicas serão executadas
-            para <novo_diretório>. É muito importante que o sinal de
-            igualdade seja usado conforme está descrito.
+            para <novo_diretório>.
 
     -h, --help
             imprime na tela esta mensagem
@@ -61,8 +60,7 @@ O bdksong é um script modo texto para execução de uma playlist dada uma strin
             imprime na tela a versão do programa.
 
     -v <tempo>, --verbose <tempo>
-            imprime na tela por <tempo> segundos a lista que será executada. É muito
-            importante que o sinal de igualdade seja usado conforme está descrito.
+            imprime na tela por <tempo> segundos a lista que será executada.
 
     -t <extensão>, --type <extensão>
             Define a extensão o arquivo que o bdksong irá tocar.
@@ -71,7 +69,6 @@ O bdksong é um script modo texto para execução de uma playlist dada uma strin
     String:
             substitua string por uma palavra, ou pedaço de palavra,
             contida na descrição da(s) música(s) desejada(s).
-
 
 EOF
 
