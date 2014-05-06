@@ -60,7 +60,7 @@ O bdksong é um script modo texto para execução de uma playlist dada uma strin
             imprime na tela a versão do programa.
 
     -v=<tempo>, --verbose=<tempo>
-            imprime na tela por <tempo> segundos a lista que será executada. É muito 
+            imprime na tela por <tempo> segundos a lista que será executada. É muito
             importante que o sinal de igualdade seja usado conforme está descrito.
 
     String:
@@ -228,10 +228,10 @@ then
 else
     cat <<WARNING
     Algum problema ocorreu enquanto tentávamos processar sua lista.
-    
+
     * Verifique se o arquivo $HOME/.config/.bdksong.cfg contém o seu diretório
     de músicas. Caso não contenha, utilize o comando --dir=<diretório>.
-    
+
     * Verifique se sua string é válida
 
     utilize --help ou -h para mais informações
