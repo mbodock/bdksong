@@ -173,6 +173,12 @@ set_shuffle()
 resolve_dependencies
 # Identificando os parâmetros e configurando os modos
 #
+if [ "$1" = "" ]
+then
+    usage
+    leave 0
+fi
+
 while [ "$1" != "" ]
 do
     PARAM=`echo $1 | awk -F= '{print $1}'`
@@ -222,7 +228,7 @@ else
     * Verifique se o arquivo $HOME/.config/.bdksong.cfg contém o seu diretório
     de músicas. Caso não contenha, utilize o comando --dir=<diretório>.
     
-    * Verifique se sua string é válido
+    * Verifique se sua string é válida
 
     utilize --help ou -h para mais informações
 WARNING
