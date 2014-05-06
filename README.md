@@ -32,6 +32,11 @@ Via download direto (versão 0.4):
     -s, --shuffle
             playlist em modo aleatório
 
+    -r, --repeat
+            Irá reproduzir a lista em loop até que a letra "q" seja precionada.
+
+
+
     -V
             imprime na tela a versão do programa.
 
