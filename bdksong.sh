@@ -28,6 +28,7 @@ file_cfg="$HOME/.config/.bdksong.cfg"
 music_string=""
 verbose=0
 sleep_time=0
+ext="(mp3|mp4|avi|AAC|wma)"
 
 
 # Imprime na tela uma mensagem de ajuda
@@ -194,15 +195,15 @@ fi
 while [ "$1" != "" ]
 do
     PARAM=`echo $1 | awk -F= '{print $1}'`
-    VALUE=`echo $1 | awk -F= '{print $2}'`
     case $PARAM in
         -h | --help)
             usage
             leave 0
             ;;
         --dir)
-            music_path_arg=$VALUE
+            music_path_arg=$2
             change_path=1
+            shift
             ;;
         -s | --shuffle)
             shuffle=1
@@ -213,7 +214,13 @@ do
             ;;
         -v | --verbose)
             verbose=1
-            sleep_time=$VALUE
+            sleep_time=$2
+            shift
+            ;;
+        -t | --type)
+            ext=$2
+            echo ext
+            shift
             ;;
         *)
             music_string=$PARAM
@@ -229,7 +236,7 @@ path_configure
 if [ -n $music_path -a -n $music_string 2> /dev/null ]
 then
     list="/tmp/bdklist.list"
-    echo "$(find $music_path | grep -i "$music_string" | egrep "mp3\$" | while read x; do echo "$x"; done)" > $list
+    echo "$(find $music_path | grep -i "$music_string" | egrep "$ext\$" | while read x; do echo "$x"; done)" > $list
     set_shuffle
     verbose_mode
     check_list
