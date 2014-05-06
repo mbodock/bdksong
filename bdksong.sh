@@ -200,6 +200,7 @@ do
             ;;
         -V)
             show_version
+            leave 0
             ;;
         -v | --verbose)
             verbose=1
