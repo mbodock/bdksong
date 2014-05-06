@@ -229,7 +229,7 @@ path_configure
 if [ -n $music_path -a -n $music_string 2> /dev/null ]
 then
     list="/tmp/bdklist.list"
-    echo "$(find $music_path | grep -i "$music_string" | while read x; do echo "$x"; done)" > $list
+    echo "$(find $music_path | grep -i "$music_string" | egrep "mp3\$" | while read x; do echo "$x"; done)" > $list
     set_shuffle
     verbose_mode
     check_list
