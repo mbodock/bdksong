@@ -223,7 +223,6 @@ do
             ;;
         -t | --type)
             ext=$2
-            echo ext
             shift
             ;;
         *)
