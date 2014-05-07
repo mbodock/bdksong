@@ -239,7 +239,7 @@ path_configure
 
 
 # Aqui é feita a magia
-if [ -n $music_path -a -n $music_string 2> /dev/null ]
+if [ -n "$music_path" -a -n "$music_string" 2> /dev/null ]
 then
     list="/tmp/bdklist.list"
     echo "$(find $music_path | grep -i "$music_string" | egrep "$ext\$" | while read x; do echo "$x"; done)" > $list
