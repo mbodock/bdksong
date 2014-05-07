@@ -23,7 +23,11 @@ Via download direto (versão 0.6):
     Opções:
     --dir <novo_diretório>
             muda o diretório do qual as músicas serão executadas
-            para <novo_diretório>.
+            para <novo_diretório>. Atenção! Esta opção irá apagar sua
+            lista de diretórios, para adicionar um novo veja a opção abaixo.
+
+    -a <diretório>, --append <diretório>
+            Adiciona o <diretório> a sua lista de diretórios de músicas.
 
     -h, --help
             imprime na tela esta mensagem
@@ -33,8 +37,6 @@ Via download direto (versão 0.6):
 
     -r, --repeat
             Irá reproduzir a lista em loop até que a letra "q" seja precionada.
-
-
 
     -V
             imprime na tela a versão do programa.
