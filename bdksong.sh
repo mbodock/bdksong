@@ -48,7 +48,11 @@ O bdksong é um script modo texto para execução de uma playlist dada uma strin
     Opções:
     --dir <novo_diretório>
             muda o diretório do qual as músicas serão executadas
-            para <novo_diretório>.
+            para <novo_diretório>. Atenção! Esta opção irá apagar sua
+            lista de diretórios, para adicionar um novo veja a opção abaixo.
+
+    -a <diretório>, --append <diretório>
+            Adiciona o <diretório> a sua lista de diretórios de músicas.
 
     -h, --help
             imprime na tela esta mensagem.
@@ -143,6 +147,12 @@ path_configure()
     fi
 }
 
+add_to_path()
+{
+    novo="$(cat $file_cfg) $1"
+    echo $novo > $file_cfg
+    echo "Configurações alteradas."
+}
 
 # Imprime na tela as músicas que serão executadas
 #
@@ -208,6 +218,10 @@ do
             music_path_arg=$2
             change_path=1
             shift
+            ;;
+        -a | --append)
+            add_to_path $2
+            leave 0
             ;;
         -r | --repeat)
             loop="-loop 0"
