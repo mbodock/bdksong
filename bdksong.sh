@@ -11,7 +11,7 @@
 #=================================
 #   Meta
 #=================================
-version="0.7.0"
+version="0.7.1"
 
 
 
@@ -189,7 +189,7 @@ check_list()
     if [ "$size" -lt "2" ]
     then
         echo "Nenhuma música encontrada."
-        leave 404
+        leave 4
     fi
 }
 
