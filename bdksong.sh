@@ -153,9 +153,9 @@ verbose_mode()
     then
         while read -r line
         do
-            # imprime só o ultimo argumento, sem o path
-            echo $line | awk -F"/" '{print $NF}'
-        done < $list
+            # Imprime o nome do arquivo/diretório
+            basename "$line"
+        done < "$list"
 
         sleep "$sleep_time"
     fi
@@ -246,7 +246,12 @@ path_configure
 if [[ -n "$music_path" && -n "$music_string" ]]
 then
     list="/tmp/bdklist.list"
-    echo "$(find $music_path | grep -i "$music_string" | egrep "$ext\$" | while read x; do echo "$x"; done)" > $list
+
+    find "$music_path" \
+        -regextype posix-egrep \
+        -iregex ".*${music_string}.*\.${ext}\$" \
+        > "$list"
+
     set_shuffle
     verbose_mode
     check_list
@@ -257,7 +262,8 @@ then
     else
         mplayer -playlist "$list"
     fi
-    rm $list
+
+    rm -f "$list"
 else
     cat <<WARNING
     Algum problema ocorreu enquanto tentávamos processar sua lista.
