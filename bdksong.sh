@@ -95,15 +95,14 @@ show_version()
 
 resolve_dependencies()
 {
-    if type mplayer >/dev/null; then
-        true
-    else
+    if ! type mplayer > /dev/null
+    then
         echo "O bdksong exige o seguinte programa:"
         echo " -mplayer"
         echo "Gostaria de instalá-lo? <s/n>"
         read option
 
-        if [ "$option" = "s" ]
+        if [[ "$option" == "s" ]]
         then
             sudo apt-get install mplayer
             clear
@@ -119,20 +118,20 @@ resolve_dependencies()
 
 path_configure()
 {
-    if [ $change_path = 1 ]
+    if [[ $change_path -eq 1 ]]
     then
-        music_path=$music_path_arg
-        echo $music_path > $file_cfg
+        music_path="$music_path_arg"
+        echo "$music_path" > "$file_cfg"
         echo "Configurações modificadas com sucesso!"
 
-    elif [ -e "$file_cfg" ]
+    elif [[ -e "$file_cfg" ]]
     then
-        music_path=$(cat $file_cfg)
+        music_path="$(cat "$file_cfg")"
 
     else
         echo "Onde você armazena suas músicas? (por favor use o caminho completo)"
         read music_path
-        echo $music_path > $file_cfg
+        echo "$music_path" > "$file_cfg"
         echo "Configurações salvas em $file_cfg"
         echo "Pronto!"
     fi
@@ -140,8 +139,8 @@ path_configure()
 
 add_to_path()
 {
-    novo="$(cat $file_cfg) $1"
-    echo $novo > $file_cfg
+    novo="$(cat "$file_cfg") $1"
+    echo "$novo" > "$file_cfg"
     echo "Configurações alteradas."
 }
 
@@ -150,15 +149,15 @@ add_to_path()
 
 verbose_mode()
 {
-    if [ $verbose = 1 ]
+    if [[ $verbose -eq 1 ]]
     then
-        while read line
+        while read -r line
         do
             # imprime só o ultimo argumento, sem o path
             echo $line | awk -F"/" '{print $NF}'
         done < $list
 
-        sleep $sleep_time
+        sleep "$sleep_time"
     fi
 }
 
@@ -167,16 +166,16 @@ verbose_mode()
 
 set_shuffle()
 {
-    if [ $shuffle = 1 ]
+    if [[ $shuffle -eq 1 ]]
     then
-        sort --random-sort $list -o $list
+        sort --random-sort "$list" -o "$list"
     fi
 }
 
 check_list()
 {
-    size=$(wc -c $list | awk -F ' ' '{print $1}')
-    if [ "$size" -lt "2" ]
+    size="$(wc -c "$list" | awk -F ' ' '{print $1}')"
+    if [[ $size -lt 2 ]]
     then
         echo "Nenhuma música encontrada."
         exit 4
@@ -192,13 +191,13 @@ resolve_dependencies
 
 # Identificando os parâmetros e configurando os modos
 #
-if [ "$1" = "" ]
+if [[ "$1" == "" ]]
 then
     usage
     exit 0
 fi
 
-while [ "$1" != "" ]
+while [[ "$1" != "" ]]
 do
     case $1 in
         -h | --help)
@@ -206,12 +205,12 @@ do
             exit 0
             ;;
         --dir)
-            music_path_arg=$2
+            music_path_arg="$2"
             change_path=1
             shift
             ;;
         -a | --append)
-            add_to_path $2
+            add_to_path "$2"
             exit 0
             ;;
         -r | --repeat)
@@ -226,36 +225,37 @@ do
             ;;
         -v | --verbose)
             verbose=1
-            sleep_time=$2
+            sleep_time="$2"
             shift
             ;;
         -t | --type)
-            ext=$2
+            ext="$2"
             shift
             ;;
         *)
             music_string="$music_string.*$1"
+            ;;
     esac
     shift
 done
-#--
 
 path_configure
 
 
 # Aqui é feita a magia
-if [ -n "$music_path" -a -n "$music_string" 2> /dev/null ]
+if [[ -n "$music_path" && -n "$music_string" ]]
 then
     list="/tmp/bdklist.list"
     echo "$(find $music_path | grep -i "$music_string" | egrep "$ext\$" | while read x; do echo "$x"; done)" > $list
     set_shuffle
     verbose_mode
     check_list
-    if [ -n "$loop" > /dev/null ]
+
+    if [[ -n "$loop" ]]
     then
-        mplayer -loop 0 -playlist $list
+        mplayer -loop 0 -playlist "$list"
     else
-        mplayer -playlist $list
+        mplayer -playlist "$list"
     fi
     rm $list
 else
