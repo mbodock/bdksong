@@ -11,8 +11,8 @@
 #=================================
 #   Meta
 #=================================
-version="0.7.1"
 
+version="0.7.1"
 
 
 #=================================
@@ -162,7 +162,6 @@ verbose_mode()
     fi
 }
 
-
 # Configura playlist aleatória
 #
 
@@ -183,6 +182,7 @@ check_list()
         exit 4
     fi
 }
+
 
 #================
 #   Main
@@ -270,4 +270,3 @@ else
     utilize --help ou -h para mais informações
 WARNING
 fi
-
