@@ -78,17 +78,8 @@ O bdksong é um script modo texto para execução de uma playlist dada uma strin
             contida na descrição da(s) música(s) desejada(s).
 
 EOF
-
 }
 
-
-# Sai sorrateiramente
-#
-
-leave()
-{
-    exit $1
-}
 
 # Imprime na tela a versão do programa
 #
@@ -117,7 +108,7 @@ resolve_dependencies()
             sudo apt-get install mplayer
             clear
         else
-            leave 0
+            exit 0
         fi
     fi
 }
@@ -189,7 +180,7 @@ check_list()
     if [ "$size" -lt "2" ]
     then
         echo "Nenhuma música encontrada."
-        leave 4
+        exit 4
     fi
 }
 
@@ -204,7 +195,7 @@ resolve_dependencies
 if [ "$1" = "" ]
 then
     usage
-    leave 0
+    exit 0
 fi
 
 while [ "$1" != "" ]
@@ -212,7 +203,7 @@ do
     case $1 in
         -h | --help)
             usage
-            leave 0
+            exit 0
             ;;
         --dir)
             music_path_arg=$2
@@ -221,7 +212,7 @@ do
             ;;
         -a | --append)
             add_to_path $2
-            leave 0
+            exit 0
             ;;
         -r | --repeat)
             loop="-loop 0"
@@ -231,7 +222,7 @@ do
             ;;
         -V)
             show_version
-            leave 0
+            exit 0
             ;;
         -v | --verbose)
             verbose=1
